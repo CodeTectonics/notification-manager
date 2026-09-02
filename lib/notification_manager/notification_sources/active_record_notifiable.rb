@@ -10,6 +10,7 @@ module NotificationManager
 
         def send_notifications
           return if skip_notifications
+          return if notification_manager_class_name.nil?
 
           notification_manager = notification_manager_class_name.constantize.new(self)
           notification_manager.run_notification_flow
